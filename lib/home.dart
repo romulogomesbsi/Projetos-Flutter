@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   bool gerarCampos = false;
   final _nController = TextEditingController();
 
-
+  ///Reseta os valores e inicia um novo ciclo de ordenação
   void resetaValores(){
     gerarCampos = false;
     podeOrdenar = false;
@@ -23,6 +23,8 @@ class _HomeState extends State<Home> {
     _controllers.clear();
   }
 
+  ///Ordena a lista com as informações dos TextFields
+  ///Sem repetição de item
   void ordenaLista(){
     for(var controller in _controllers){
       if(controller.text != ""){
@@ -37,6 +39,7 @@ class _HomeState extends State<Home> {
     numsFinal = numsFinal.toSet().toList();
   }
 
+  ///Mostra a lista ordenada e sem repetição no App
   Widget listaOrdenada(){
     return ListView.builder(
         padding: const EdgeInsets.all(8),
@@ -50,6 +53,8 @@ class _HomeState extends State<Home> {
     );
   }
 
+
+  ///Gera o total de campos informados para a variável N
   Widget _buildPerguntas(BuildContext context) {
     return ListView.builder(
         itemCount: n,
@@ -65,6 +70,7 @@ class _HomeState extends State<Home> {
       });
   }
 
+  ///Iniciando a variável N, com a quantidade de números que serão inseridos
   Widget buildInicio(){
     return Column(
       children: <Widget>[
